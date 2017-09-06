@@ -1,0 +1,12 @@
+<!-- layout/layout.html -->
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>demo</title>
+</head>
+<body>
+<div th:include="components/header :: header"></div>
+<div layout:fragment="content"></div>
+<div th:include="components/footer :: footer"></div>
+</body>
+</html>
