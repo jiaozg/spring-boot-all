@@ -14,14 +14,14 @@ public class SchedulerFixedTask {
 
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
-    @Scheduled(fixedRate = 6000)
-    public void reportCurrentTime() {
-        System.out.println("现在时间：" + dateFormat.format(new Date()));
-    }
+//    @Scheduled(fixedRate = 6000)
+//    public void reportCurrentTime() {
+//        System.out.println("现在时间：" + dateFormat.format(new Date()));
+//    }
 
     private int count=0;
 
-    @Scheduled(cron="40 33 16 * * ?")
+    @Scheduled(cron="0 * * * * ?")
     private void process(){
         System.out.println("this is scheduler task runing  "+(count++) + "  " +  new Date());
     }

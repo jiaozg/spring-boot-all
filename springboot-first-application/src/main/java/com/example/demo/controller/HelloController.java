@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.bean.Chapter;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,10 +16,13 @@ import java.util.regex.Pattern;
 @RestController
 public class HelloController {
 
+    @GetMapping("/mq")
+    public String mq() {
+        return "mq";
+    }
+
     @RequestMapping("/")
     public String index() {
-
-
         String pathname = "/Users/jiaozhiguang/baweiwork/springboot/spring-boot-all/springboot-first-application/a.txt";
         File file = new File(pathname);
         txt2String(file);
