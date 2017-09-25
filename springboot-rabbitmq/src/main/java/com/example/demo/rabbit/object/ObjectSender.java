@@ -1,4 +1,4 @@
-package com.example.demo.rabbit.object;//package com.bawei.rabbit.object;
+package com.example.demo.rabbit.object;
 
 import com.example.demo.domain.User;
 import org.springframework.amqp.core.AmqpTemplate;
