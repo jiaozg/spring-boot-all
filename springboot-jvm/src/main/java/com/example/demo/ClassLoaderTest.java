@@ -54,5 +54,15 @@ public class ClassLoaderTest {
 
         BigDecimal bigDecimal = new BigDecimal(10);
         System.out.println(bigDecimal + "test");
+
+
+        ClassLoader cl = ClassLoader.getSystemClassLoader();
+        try {
+            Class<?> cls = cl.loadClass("java.util.ArrayList");
+            ClassLoader actualLoader = cls.getClassLoader();
+            System.out.println(actualLoader);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
