@@ -61,8 +61,10 @@ public class FileUploadController {
     }
 
     @PostMapping("/")
-    public String handleFileUpload(@RequestParam("file") MultipartFile file,
+    public String handleFileUpload(@RequestParam("file") MultipartFile file, String name,
                                    RedirectAttributes redirectAttributes) {
+
+        System.out.println(name);
 
         storageService.store(file);
         redirectAttributes.addFlashAttribute("message",
