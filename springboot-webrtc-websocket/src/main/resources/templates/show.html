@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>主播开播界面</title>
+</head>
+<body>
+
+<video src="" autoplay id="vi" style="width:640px;height: 480px;"></video>
+<!-- webrtc -->
+<canvas id="output" style="display: none"></canvas>
+<script type="text/javascript">
+    var video = document.getElementById("vi");
+
+
+    var success = function(stream) {
+        video.src = window.URL.createObjectURL(stream);
+    };
+
+    function draw() {
+
+        //js bom模型
+        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+        //audio:true 设置成false 去掉重音
+        navigator.getUserMedia({video:true, audio:true}, success,console.log);
+    }
+
+    draw();
+
+
+
+
+</script>
+
+</body>
+</html>

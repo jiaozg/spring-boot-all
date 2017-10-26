@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>围观主播</title>
+</head>
+<body>
+
+<img id="receive" style="width: 400px;height: 330px;">
+
+<script type="text/javascript">
+    var receive_socket = new WebSocket("ws://localhost:8080/onlineServer");
+    var image = document.getElementById("receive");
+    receive_socket.onmessage = function (info) {
+        image.src = info.data;
+    }
+
+</script>
+
+</body>
+</html>

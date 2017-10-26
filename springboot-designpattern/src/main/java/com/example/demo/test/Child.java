@@ -3,18 +3,23 @@ package com.example.demo.test;
 /**
  * Created by jiaozhiguang on 2017/10/23.
  */
-public class Child extends Person {
+public class Child extends Parent {
 
-    public String grade;
+    public String c = "child";
+    private static String sc = "s child";
 
-    public Child() {
-        System.out.println();
-        super();
+    public void method() {
+        System.out.println(c);
+    }
+
+    public static void smethod() {
+        System.out.println(sc);
     }
 
     public static void main(String[] args) {
-        Person person = new Child();
-//        System.out.println(person.name);
+        Child child = new Child();
+
+
     }
 
 }
