@@ -50,7 +50,12 @@ public class SampleController {
 	}
 
 	@Bean
-	public OnlineServer chatRoomServerEndpoint() {
-		return new OnlineServer();
-	}
+    public OnlineServer onlienServerEndpoint() {
+        return new OnlineServer();
+    }
+
+    @Bean
+    public ChatRoom chatRoomEndpoint() {
+        return new ChatRoom();
+    }
 }

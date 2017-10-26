@@ -7,12 +7,26 @@
 <body>
 
 <img id="receive" style="width: 400px;height: 330px;">
-
+<div id="dm" style="width: 400px;height: 330px; position: absolute; background: rgba(0,0,0,0.3);color: white;top: 0px;left: 0px;overflow:auto"></div>
+<input type="text" id="msg">
+<button onclick="sendMsg()">发送消息</button>
 <script type="text/javascript">
     var receive_socket = new WebSocket("ws://localhost:8080/onlineServer");
     var image = document.getElementById("receive");
     receive_socket.onmessage = function (info) {
         image.src = info.data;
+    }
+
+    var msg_socket = new WebSocket("ws://localhost:8080/chatroom");
+
+    msg_socket.onmessage = function(info) {
+
+        document.getElementById("dm").innerHTML += info.data + "<br>";
+    };
+
+    function sendMsg() {
+        var msg = document.getElementById("msg").value;
+        msg_socket.send(msg);
     }
 
 </script>

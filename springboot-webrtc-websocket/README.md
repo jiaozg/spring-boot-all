@@ -5,3 +5,9 @@
 3，使用websocket构建一个服务器
 
 Socket编程
+
+主播开播链接
+http://localhost:8080/xiu
+
+围观主播链接
+http://localhost:8080/live
