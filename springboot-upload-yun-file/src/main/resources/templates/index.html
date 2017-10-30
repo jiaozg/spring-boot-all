@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文件上传系统</title>
+    <link rel="stylesheet" th:href="@{/index.css}"></link>
+    <script th:src="@{/index.js}"></script>
+</head>
+<body>
+    <div id="box" class="box">
+        <h1 class="h1">云文件管理系统</h1>
+        <input type="file" id="files" onchange="fileUp()" multiple style="display: none"/>
+        <a href="javascript:void(0);" onclick="fileChoice()">上传文件</a>
+        <div class="fileList" id="flist">
+            <ul>
+                <li style="width: 30%">文件名</li>
+                <li style="width: 68%"><progress max="100" value="20"></progress></li>
+            </ul>
+
+        </div>
+    </div>
+
+</body>
+</html>

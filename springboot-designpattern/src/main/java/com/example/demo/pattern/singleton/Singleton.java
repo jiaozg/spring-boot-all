@@ -1,4 +1,4 @@
-package com.example.demo.pattern;
+package com.example.demo.pattern.singleton;
 
 /**
  * Created by jiaozhiguang on 2017/10/18.
