@@ -50,7 +50,7 @@
 
         backContext.drawImage(video, 0, 0, back.width, back.height);
         //将视频的图像50%的像素发送出去
-        socket.send(back.toDataURL("image/jpeg", 0.5));
+        socket.send(back.toDataURL("image/jpeg", 1));
         //js bom模型
 
     }

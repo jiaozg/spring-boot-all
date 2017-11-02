@@ -6,36 +6,127 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>主播开播界面</title>
+    <style>
+        /*去掉默认样式*/
+        ul{margin:0;padding: 0}
+        li{list-style: none}
+        body{
+            background: url("img/1.jpg");
+            font-size: 12px;
+            color: #ffffff;
+        }
+        /*盖在屏幕上的蒙层*/
+        .mask{
+            width: 100%;
+            height: 100%;
+            background: #000;
+            position: absolute;
+            top:0;
+            left: 0;
+            /*透明度*/
+            opacity: 0.2;
+        }
+        .s_close{
+            width: 100px;
+            height: 38px;
+            background: #C00;
+            /*定位*/
+            position: absolute;
+            top:20px;
+            right: 20px;
+            /*边框圆角*/
+            border-radius: 20px;
+            text-align: center;
+            line-height: 38px;
+            font-size: 16px;
+            /*层级*/
+            z-index: 2;
+            /*鼠标变小手*/
+            cursor: pointer;
+        }
+        .s_close:hover{
+            background: #F00;
+        }
+        .show{
+            position: relative;
+            z-index: 3;
+        }
+        .show li{
+            position: absolute;
+            font-size: 22px;
+            top: 76px;
+        }
+        .send{
+            width: 100%;
+            height: 76px;
+            position: absolute;
+            bottom:0;
+            left: 0;
+        }
+        .s_filter{
+            width: 100%;
+            height: 76px;
+            bottom:0;
+            left:0;
+            background: #000;
+
+        }
+        .con{
+            width: 100%;
+            height: 76px;
+            position: absolute;
+            bottom:0;
+            left: 0;
+            text-align: center;
+            line-height: 76px;
+        }
+        .text{
+            width: 600px;
+            height: 36px;
+            border-radius: 5px;
+            outline: none;
+            border:none;
+        }
+        .btn{
+            width: 100px;
+            height: 36px;
+            background: green;
+            border-radius: 5px;
+            color: #fff;
+            text-align: center;
+            line-height: 36px;
+            border:none;
+            cursor: pointer;
+        }
+
+    </style>
 </head>
 <body>
 
-<video src="" autoplay id="vi" style="width:640px;height: 480px;"></video>
-<!-- webrtc -->
-<canvas id="output" style="display: none"></canvas>
-<script type="text/javascript">
-    var video = document.getElementById("vi");
+    <div class="s_close">关闭弹幕</div>
+    <div class="box">
+        <div class="screen">
+            <div class="mask">
+                <ul class="show">
+                    <li>范冰冰好漂亮^_^</li>
+                    <li>醉了~~~~~我醉了。</li>
+                    <li>美人真的太有气质了。</li>
+                    <li>好喜欢这个电视剧，大爱饭饭。</li>
+                    <li>我都比她漂亮，这有什么好惊艳的。</li>
+                    <li>楼上大言不惭~_~</li>
+                </ul>
+            </div>
+        </div>
+        <div class="send">
+            <div class="s_filter"></div>
+            <div class="con">
+                <input type="text"  class="text" />
+                <input type="button" class="btn"  value="发表评论"/>
+            </div>
+        </div>
+    </div>
 
-    var ws = new WebSocket("ws://localhost:8080/onlineServer");
-
-
-    var success = function(stream) {
-        video.src = window.URL.createObjectURL(stream);
-    };
-
-    function draw() {
-
-        //js bom模型
-        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-        //audio:true 设置成false 去掉重音
-        navigator.getUserMedia({video:true, audio:true}, success,console.log);
-    }
-
-    draw();
-
-
-
-
-</script>
-
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>

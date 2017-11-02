@@ -17,12 +17,14 @@
 
 
     var success = function(stream) {
+        //
         video.src = window.URL.createObjectURL(stream);
     };
 
     function draw() {
 
         //js bom模型
+
         navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
         //audio:true 设置成false 去掉重音
         navigator.getUserMedia({video:true, audio:true}, success,console.log);
