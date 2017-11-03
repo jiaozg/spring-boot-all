@@ -30,6 +30,11 @@ public class SampleController {
 		return "index";
 	}
 
+	@GetMapping("/test")
+	String test() {
+		return "test";
+	}
+
 	@GetMapping("/xiu")
 	String xiu() {
 		return "xiu";

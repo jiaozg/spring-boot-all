@@ -56,7 +56,6 @@ $(function(){
         var g=Math.ceil(Math.random()*255);
         var b=Math.ceil(Math.random()*255);
         return `rgba(${r},${g},${b},1)`
-
     }
 
 })

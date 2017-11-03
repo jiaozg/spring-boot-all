@@ -27,7 +27,7 @@ public class OnlineServer {
     public void onOpen(Session session) {
         this.session = session;
         clints.add(this);
-        System.out.println("新连接 建立");
+        System.out.println("新连接 建立" + clints.size());
     }
 
     @OnClose
