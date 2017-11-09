@@ -11,6 +11,7 @@ $(function(){
         }
         // 双选 时间 毫秒 1000MS=1S
     })
+
     // 初始化弹幕
     init_screen()
     //发送评论
@@ -22,8 +23,17 @@ $(function(){
         $('.show').append(con);
         init_screen();
 
+        count();
 
     })
+
+    function count() {
+        var count = $('.s_count').text();
+        var intCount = parseInt(count);
+        intCount++;
+        $('.s_count').html(intCount);
+    }
+
     function init_screen(){
         var _top=0;
         $('.show').find('li').each(function(){

@@ -45,6 +45,21 @@ public class SampleController {
 		return "live";
 	}
 
+	@GetMapping("/ball")
+	String ball() {
+		return "ball";
+	}
+
+	@GetMapping("/shoot")
+	String shoot() {
+		return "shoot";
+	}
+
+	@GetMapping("/snake")
+	String snake() {
+		return "snake";
+	}
+
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(SampleController.class, args);
 	}
