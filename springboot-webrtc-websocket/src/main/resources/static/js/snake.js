@@ -43,7 +43,7 @@ function Food(x, y) {
 }
 //蛇的对象， 用数组存放
 var snake = [];
-var length = 6; //蛇的初始长度
+var length = 2; //蛇的初始长度
 var speed = 100;//蛇的移动速度
 
 var food = new Food(15, 15);
@@ -85,19 +85,27 @@ document.onkeydown = function (e) {
         case 83:direction=-2;break;
     }
     var head = snake[snake.length - 1];
+
     if(direction != 0 && (head.f + direction != 0)) {
         //调用蛇的移动方法
+        head.f = direction;
         moveSnake(direction);
+
     }
 }
 
+
 function moveSnake(direction) {
-    var head = snake[length - 1];
+    var head = snake[snake.length - 1];
     var newSnake = []; //新的临时的蛇的身体
     var newHead = new Cell(head.x, head.y, head.f);//复制一个新的蛇头
     //将尾巴去掉，把剩下的放到新数组
     for(var i=1; i<snake.length; i++) {
         newSnake[i - 1] = snake[i];
+    }
+
+    if(! direction) {
+        direction = head.f;
     }
     newHead.f = direction;
     //修改x ， y 的坐标
@@ -109,8 +117,31 @@ function moveSnake(direction) {
     }
     newSnake[newSnake.length] = newHead;
     snake = newSnake;
+
+    gameOver();
+
     draw();
 }
+
+function gameOver() {
+    //检测撞到游戏的边界
+    var head = snake[snake.length - 1];
+    if(head.x >29 || head.y > 29 || head.x < 0 || head.y <0 ) {
+        alert("撞墙");
+        clearInterval(autoRun);
+        window.location.reload();
+    }
+    //不能咬到自己
+    for(var i=0; i< snake.length; i++) {
+        if((head.x == snake[i].x) && (head.y = snake[i].y) ){
+            alert("咬到自己了");
+            clearInterval(autoRun);
+            window.location.reload();
+        }
+    }
+
+}
+
 draw();
 function draw() {
     ctx.clearRect(0, 0, 450, 450);
@@ -123,14 +154,22 @@ function draw() {
     //吃食物， 食物的坐标和蛇头的坐标重叠
     var head = snake[snake.length - 1];
     if(head.x == food.x && head.y == food.y) {
-
-        snake[snake.length] = new Cell(head.x, head.y, head.f);
+        var newHead = new Cell(head.x, head.y, head.f);
+        //修改x ， y 的坐标
+        switch (newHead.f) {
+            case 1: newHead.x-- ; break;
+            case 2: newHead.y--; break;
+            case -1: newHead.x++; break;
+            case -2: newHead.y++; break;
+        }
+        snake[snake.length] = newHead;
+        randomFood();
     }
     //画蛇
     for(var i=0; i<snake.length; i++) {
         var cell = snake[i];
         ctx.fillStyle = "gray";
-        if(i == length -1 ) {
+        if(i == snake.length -1 ) {
             ctx.fillStyle = "red";
         }
         ctx.beginPath();
@@ -138,9 +177,22 @@ function draw() {
         ctx.closePath();
         ctx.fill();
     }
-
-
 }
 
+function randomFood() {
+    food.x = Math.ceil(Math.random() * 29);
+    food.y = Math.ceil(Math.random() * 29);
+}
+
+var autoRun = setInterval(moveSnake, speed);
 
 
+var id = document.getElementById("id");
+
+
+var data = [];
+for(var i=0; i<data.length;i++) {
+    data[i] = i;
+}
+
+data: data;

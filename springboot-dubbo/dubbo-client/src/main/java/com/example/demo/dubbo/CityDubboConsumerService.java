@@ -15,9 +15,9 @@ public class CityDubboConsumerService {
     @Reference(version = "1.0.0", loadbalance="roundrobin")
     CityDubboService cityDubboService;
 
-    public void printCity() {
+    public City printCity() {
         String cityName="温岭";
         City city = cityDubboService.findCityByName(cityName);
-        System.out.println(city.toString());
+        return city;
     }
 }

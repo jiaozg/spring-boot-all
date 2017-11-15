@@ -60,6 +60,11 @@ public class SampleController {
 		return "snake";
 	}
 
+	@GetMapping("/kefu")
+	String kefu() {
+		return "kefu";
+	}
+
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(SampleController.class, args);
 	}

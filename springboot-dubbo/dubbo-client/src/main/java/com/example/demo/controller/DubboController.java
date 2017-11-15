@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.domain.City;
 import com.example.demo.dubbo.CityDubboConsumerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,9 +16,8 @@ public class DubboController {
     CityDubboConsumerService service;
 
     @GetMapping("/")
-    public String getCity() {
-        service.printCity();
-        return "OK";
+    public City getCity() {
+        return service.printCity();
     }
 
 }
