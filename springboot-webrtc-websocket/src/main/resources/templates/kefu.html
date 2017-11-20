@@ -18,6 +18,7 @@
             margin: 80px auto;
             box-shadow: 0px 0px 47px 5px red;
             border-radius: 5px;
+            display: none;
         }
         .head{
             height: 40px;
@@ -41,12 +42,66 @@
         .head .hide:hover{
             width: 35px;
             height: 35px;
+            font-size: 30px;
+            line-height: 33px;
+        }
+        .center {
+            height: 300px;
+            background: #fff;
+            padding: 10px;
+            overflow: auto;
+        }
+
+        .send{
+            height:120px;
+        }
+        /*id 选择器*/
+        #sendContent{
+            height: 70px;
+            width: 595px;
+            border: none;
+            border-top: 1px solid #ddd;
+            outline: medium;
+        }
+        .bottom {
+            height: 50px;
+            cursor: pointer;
+        }
+        .bottom span {
+            text-decoration: underline;
+            font-size: 14px;
+        }
+        button {
+            float: right;
+            margin-right: 20px;
+            height: 30px;
+            width: 100px;
+            font-size: 20px;
+            background: #0066ff;
+            border-radius: 5px;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0px 0px 5px #000;
+        }
+        button:hover {
+            border:1px dashed yellow;
+        }
+
+        .left {
+            width: 100%;
+            color: #ff6600;
+        }
+        .right {
+            float: right;
+            text-align: right;
+            width: 100%;
         }
     </style>
 </head>
 <body>
 
-<a href="javascript:void(0);">客服</a>
+<a href="javascript:void(0);" class="show">客服</a>
 
 <!-- 窗体面板 -->
 <div class="box">
@@ -57,13 +112,68 @@
     </div>
     <!-- 窗体面板 内容-->
     <div class="center">
-
+        <div class='left'>
+            <span class='msg'>你好，我是奶茶，有什么可以为你效劳</span>
+        </div>
+        <div class='right'>
+            <!--<span class='msg'>给我买杯咖啡</span>-->
+        </div>
     </div>
 
     <div class="send">
-
+        <input type="text" id="sendContent" placeholder="亲，请描述你的问题" />
+        <div class="bottom">
+            <span>满意度调查</span>
+            <span>教我说说话吧</span>
+            <button>发送</button>
+        </div>
     </div>
 </div>
 
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+    $(function () {
+        $(".show").click(function () {
+            $(".box").toggle("slow");
+            $(".show").toggle("slow");
+        })
+        $(".hide").click(function () {
+            $(".box").toggle("slow");
+            $(".show").toggle("slow");
+        })
+
+        $("button").click(function () {
+            var content = $("#sendContent").val();
+            var center = $(".center");
+            var html = "<div class='right'><span class='msg'>" + content + "</span></div>";
+            center.append(html);
+            center.scrollTop(center[0].scrollHeight);
+
+            $.ajax({
+                type: "get",
+                url: "http://www.tuling123.com/openapi/api?key=fc77fb4cc9084ccd83a46a6753605203&info="+content,
+                success:function (result) {
+                    var tmp = "";
+                    if(result.url) {
+                        tmp += "<a href='"+ result.url +"' target=_blank>"+result.text+"</a>"
+                    } else {
+                        tmp += "<span>"+ result.text +"</span>";
+                    }
+
+
+                    var html = "<div class='left'><span class='msg'>"+ tmp +"</span></div>";
+                    center.append(html);
+                    center.scrollTop(center[0].scrollHeight);
+                }
+            })
+        })
+    })
+    document.onkeydown = function (e) {
+        var code = e.keyCode;
+        if(code == 13) {
+            $("button").click();
+        }
+    }
+</script>
 </body>
 </html>
