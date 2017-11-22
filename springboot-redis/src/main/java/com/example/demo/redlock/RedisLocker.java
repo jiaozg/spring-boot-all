@@ -1,12 +1,10 @@
 package com.example.demo.redlock;
 
-/**
- * Created by jiaozhiguang on 2017/9/2.
- */
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import java.util.concurrent.TimeUnit;
 
 @Component
@@ -16,6 +14,7 @@ public class RedisLocker  implements DistributedLocker{
 
     @Autowired
     RedissonConnector redissonConnector;
+
     @Override
     public <T> T lock(String resourceName, AquiredLockWorker<T> worker) throws InterruptedException, UnableToAquireLockException, Exception {
 
@@ -26,7 +25,7 @@ public class RedisLocker  implements DistributedLocker{
     public <T> T lock(String resourceName, AquiredLockWorker<T> worker, int lockTime) throws UnableToAquireLockException, Exception {
         RedissonClient redisson= redissonConnector.getClient();
         RLock lock = redisson.getLock(LOCKER_PREFIX + resourceName);
-        // Wait for 100 seconds seconds and automatically unlock it after lockTime seconds
+      // Wait for 100 seconds seconds and automatically unlock it after lockTime seconds
         boolean success = lock.tryLock(100, lockTime, TimeUnit.SECONDS);
         if (success) {
             try {

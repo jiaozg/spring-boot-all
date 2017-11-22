@@ -7,12 +7,13 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 
 /**
- * Created by jiaozhiguang on 2017/9/2.
  * 获取RedissonClient连接类
  */
 @Component
 public class RedissonConnector {
+
     RedissonClient redisson;
+
     @PostConstruct
     public void init(){
         redisson = Redisson.create();

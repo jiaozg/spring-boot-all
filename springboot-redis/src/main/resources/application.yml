@@ -4,7 +4,7 @@ spring:
     port: 6379
     database: 0
 server:
-  port: 8081
+  port: 8080
 
 management:
   security:

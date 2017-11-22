@@ -17,7 +17,6 @@
 		<module>springboot-restdocs</module>
 		<module>springboot-dubbo</module>
 		<module>springboot-upload-yun-file</module>
-		<module>springboot-spider-fusionchart</module>
 	</modules>
 
 	<parent>
