@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<dd id="imgphonernd_code">
+    <em>验证码</em>
+    <input class="mid" type="text" id="txtphoneimgcode" placeholder="验证码" onblur="yzcode()">
+    <img class="code-img" id="imgphonernd"  src="/toValidateCode" alt="这里是验证码">
+    <a  onclick="changeImg()" id="refresh_code" class="stat" data-stat="qd_L08|手机-验证码换一张|3" style="cursor:hand">换一张</a>
+</dd>
+<script src="js/jquery-3.2.1.js"></script>
+<script >
+    function changeImg() {
+        var imgSrc = $("#imgphonernd");
+        var src = imgSrc.attr("src");
+        var vartime=new Date().getTime();
+        imgSrc.attr("src", src+"?vartime="+vartime);
+    }
+
+    /*验证码验证*/
+    function yzcode(){
+        var val = $("#txtphoneimgcode").val();
+        $.post("/yzCode",{code:val},function(data){
+            if(data=="1"){
+                // alert("code true")
+                code=1;
+                alert("验证码正确");
+            }else {
+                code=0;
+                alert("验证码错误");
+            }
+        })
+    }
+
+</script>
+
+</body>
+</html>

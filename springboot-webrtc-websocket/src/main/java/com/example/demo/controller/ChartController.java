@@ -1,12 +1,15 @@
 package com.example.demo.controller;
 
 import com.example.demo.util.SpiderUtil;
+import com.example.demo.util.ValidateCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Map;
 
@@ -32,6 +35,35 @@ public class ChartController {
         return spiderUtil.getRange(uri);
     }
 
+
+
+    @RequestMapping("/toValidateCode")
+    @ResponseBody
+    public void toValidateCode(HttpServletResponse response, HttpSession session)throws Exception{
+        ValidateCode vCode = new ValidateCode(160,40,5,150);
+        // 设置响应的类型格式为图片格式
+        response.setContentType("image/jpeg");
+        //禁止图像缓存。
+        response.setHeader("Pragma", "no-cache");
+        response.setHeader("Cache-Control", "no-cache");
+        response.setDateHeader("Expires", 0);
+        vCode.write(response.getOutputStream());
+        System.out.println(vCode.getCode().toString());
+        session.setAttribute("code",vCode.getCode().toString());
+    }
+
+    @RequestMapping("yzCode")
+    @ResponseBody
+    public String yzCode(String code,HttpSession session){
+        String codel = (String)session.getAttribute("code");
+        if(code.equalsIgnoreCase(codel)){
+            System.out.println("验证成功");
+            return "1";
+        }
+        System.out.println("验证失败");
+        return "0";
+    }
+
     @RequestMapping("/")
     @ResponseBody
     String home() {
@@ -40,6 +72,11 @@ public class ChartController {
     @GetMapping("/show")
     String show() {
         return "show";
+    }
+
+    @GetMapping("/validcode")
+    String validcode() {
+        return "validcode";
     }
 
     @GetMapping("/index")

@@ -49,3 +49,5 @@ http://localhost:8080/live
 html 结构
 css  样式
 js   功能
+
+http://akquinet.github.io/jquery-toastmessage-plugin/
