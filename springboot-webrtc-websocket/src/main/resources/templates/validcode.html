@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="plugins/toastmessage/resources/css/jquery.toastmessage.css"></link>
 </head>
 <body>
 <dd id="imgphonernd_code">
@@ -12,7 +13,14 @@
     <a  onclick="changeImg()" id="refresh_code" class="stat" data-stat="qd_L08|手机-验证码换一张|3" style="cursor:hand">换一张</a>
 </dd>
 <script src="js/jquery-3.2.1.js"></script>
+<script src="plugins/toastmessage/javascript/jquery.toastmessage.js"></script>
 <script >
+
+    $().toastmessage('showNoticeToast', 'some message here');
+    $().toastmessage('showSuccessToast', "some message here");
+    $().toastmessage('showWarningToast', "some message here");
+    $().toastmessage('showErrorToast', "some message here");
+
     function changeImg() {
         var imgSrc = $("#imgphonernd");
         var src = imgSrc.attr("src");
@@ -27,10 +35,10 @@
             if(data=="1"){
                 // alert("code true")
                 code=1;
-                alert("验证码正确");
+                $().toastmessage('showNoticeToast', '验证码正确');
             }else {
                 code=0;
-                alert("验证码错误");
+                $().toastmessage('showErrorToast', "验证码错误");
             }
         })
     }
