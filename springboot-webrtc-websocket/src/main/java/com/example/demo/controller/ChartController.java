@@ -2,7 +2,6 @@ package com.example.demo.controller;
 
 import com.example.demo.util.SpiderUtil;
 import com.example.demo.util.ValidateCode;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,8 +18,17 @@ import java.util.Map;
 @Controller
 public class ChartController {
 
-    @Autowired
-    SpiderUtil spiderUtil;
+
+
+    @GetMapping("/gaode")
+    public String gaode() {
+        return "gaode";
+    }
+
+    @GetMapping("/hello")
+    public String hello() {
+        return "hello";
+    }
 
     @GetMapping("/chart")
     public String chart() {
@@ -32,7 +40,7 @@ public class ChartController {
     public Map<String, Integer> getMap(String lan) throws IOException {
         String uri  = "http://search.51job.com/list/010000,000000,0000,00,9,${page},${keyword},2,1.html?lang=c&stype=1&postchannel=0000&workyear=99&cotype=99&degreefrom=99&jobterm=99&companysize=99&lonlat=0%2C0&radius=-1&ord_field=0&confirmdate=9&fromType=21&dibiaoid=0&address=&line=&specialarea=00&from=&welfare=";
         uri = uri.replace("${keyword}", lan); System.out.println(uri);
-        return spiderUtil.getRange(uri);
+        return SpiderUtil.getRange(uri);
     }
 
 

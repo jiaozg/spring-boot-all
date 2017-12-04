@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        /*默认处理 内外间距 浏览器兼容写法*/
+        *{margin:0;padding: 0}
+        body {
+            font-size: 12px;
+            color: #666;
+        }
+        .top {
+            width: 100%;
+            height: 68px;
+            background: #f5f5f5;
+            border-bottom: 1px solid #d2d2d2;
+        }
+        .top .logo {
+            float: left;
+            padding: 20px 30px 0px 30px;
+        }
+        .top .search {
+            float: left;
+            line-height: 68px;
+        }
+
+        .top .txt {
+            outline: none;
+        }
+
+        .top .btn {
+            width: 60px;
+            height: 28px;
+            background: #2277cc;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 3px;
+            outline: none;
+        }
+        .top .btn:hover {
+            background: #ff6600;
+        }
+        .maps {
+            width: 100%;
+            height: 800px;
+        }
+        .map {
+            width: 100%;
+            height: 100%;
+        }
+        #panel {
+            position: absolute;
+            background: #fff;
+            max-height: 80%;
+            overflow-y: auto;
+            top:68px;
+            right: 5px;
+            width: 250px;
+            border: 1px solid red;
+        }
+    </style>
+
+</head>
+<body>
+
+    <!-- top -->
+    <div class="top">
+        <div class="logo">
+            <h1>志广科技</h1>
+        </div>
+        <div class="search">
+            <span>起始地</span>
+            <input type="text" class="txt" id="start" value="西二旗">
+            <span>起始地</span>
+            <input type="text" class="txt" id="end" value="西直门">
+            <input type="button" class="btn" onclick="putTrans();" value="公交">  |
+            <input type="button" class="btn" value="驾车" />
+        </div>
+    </div>
+    <!-- map -->
+    <div class="maps" >
+        <div class="map" id="container"></div>
+        <div class="panel" id="panel"></div>
+    </div>
+<!-- 引入高德地图api -->
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.2&key=9b43f71106c1cfeb0112c53132d23575"></script>
+    <script type="text/javascript">
+        var map, toolbar, mouseTool, contextMenu;
+
+        map = new AMap.Map('container',{
+            resizeEnable: true,
+        });
+        //添加工具栏 和 鼠标工具
+        map.plugin(["AMap.ToolBar","AMap.MouseTool"], function () {
+            toolbar = new AMap.ToolBar();
+            map.addControl(toolbar);
+            mouseTool = AMap.MouseTool(map);
+        });
+        //添加自动补全
+        AMap.plugin('AMap.Autocomplete',function(){//回调函数
+            //实例化Autocomplete
+            var autoOptions = {
+                city: "", //城市，默认全国
+                input:"start"//使用联想输入的input的id
+            };
+            autocomplete= new AMap.Autocomplete(autoOptions);
+            //TODO: 使用autocomplete对象调用相关功能
+        });
+
+        function putTrans() {
+            var start = document.getElementById("start").value;
+            var end = document.getElementById("end").value;
+            alert(start);
+
+            AMap.service('AMap.Transfer',function(){//回调函数
+                //实例化Transfer
+                transfer= new AMap.Transfer({city: '北京市'});
+                //TODO: 使用transfer对象调用公交换乘相关的功能
+                transfer.search([{keyword:start}], [{keyword:end}]);
+            })
+
+
+        }
+
+
+
+    </script>
+
+</body>
+</html>

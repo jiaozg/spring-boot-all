@@ -1,0 +1,44 @@
+<!doctype html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <style type="text/css">
+      body,html,#container{
+        height: 100%;
+        margin: 0px;
+      }
+    </style>
+    <title>快速入门</title>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="input_id">
+    </div>
+    <div id="container" tabindex="0"></div>
+
+
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.2&key=9b43f71106c1cfeb0112c53132d23575"></script>
+    <script type="text/javascript">
+        var map = new AMap.Map('container',{
+            resizeEnable: true,
+            zoom: 10,
+            center: [116.480983, 40.0958]
+        });
+
+        var trans;
+        transOptions = {
+            map: map,
+            panel: "result1",
+            city: '北京市',                            //公交城市
+            policy: AMap.TransferPolicy.LEAST_TIME //乘车策略
+        };
+        //构造公交换乘类
+        trans = new AMap.Transfer(transOptions);
+        //根据起、终点坐标查询公交换乘路线
+        trans.search([116.379028, 39.865042], [116.427281, 39.903719]);
+
+
+    </script>
+  </body>
+</html>

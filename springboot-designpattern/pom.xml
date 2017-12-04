@@ -47,7 +47,22 @@
 			<artifactId>netty</artifactId>
 			<version>3.10.6.Final</version>
 		</dependency>
+
+		<!-- 邮件 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+
+		<!-- 加密 -->
+		<dependency>
+			<groupId>com.github.ulisesbocchio</groupId>
+			<artifactId>jasypt-spring-boot-starter</artifactId>
+			<version>1.8</version>
+		</dependency>
 	</dependencies>
+
+
 
 	<build>
 		<plugins>

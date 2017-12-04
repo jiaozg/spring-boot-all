@@ -3,7 +3,6 @@ package com.example.demo.util;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
-import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,7 +18,6 @@ import java.util.regex.Pattern;
  * Created by jiaozhiguang on 2017/10/31.
  * 爬虫 根据业务需求 抓取特定的
  */
-@Component
 public class SpiderUtil {
 
     public static void main(String[] args) throws IOException {

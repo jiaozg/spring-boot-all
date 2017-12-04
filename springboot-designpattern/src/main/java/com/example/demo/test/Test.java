@@ -1,72 +1,42 @@
 package com.example.demo.test;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-
 /**
  * Created by jiaozhiguang on 2017/10/17.
  */
 public class Test {
 
-    static int[] arr = new int[10];
 
     public static void main(String[] args) {
 
-
-        BigDecimal b1 = new BigDecimal("20").divide(new BigDecimal("3"), 3, RoundingMode.HALF_UP);
-
-        System.out.println(b1);
-
-//        String a = "abc";
-//        String b = "abc";
-//
-//        System.out.println(a == b);
-//        System.out.println(a.equals(b));
-
-
-//        int i = 0;
-//        for( ; i<4; i+=2) {
-//            System.out.print( i + " ");
-//        }
-
-//        int i = 1, j=10;
-//        do {
-//            if (i > --j) {
-//                continue;
-//            }
-//        } while (i++ < 5);
-//
-//        System.out.println("i = " + i + " and j  = " + j);
-
-
-
-
-//        System.out.println(3*0.1 == 0.3);
-//        System.out.println(-1>>1);
-//        System.out.println(-1>>>1);
-//        System.out.println(2>>1);
-//        System.out.println(2>>>1);
-//
-//        System.out.println(arr[1]);
-//
-//        System.out.println("##########");
-//
-//        System.out.println(foo(50));
-//
-//        System.out.println(Integer.toBinaryString(48));
-//        System.out.println(Integer.toBinaryString(47));
-//
-//        System.out.println(Integer.toBinaryString(32));
-//        System.out.println(Integer.toBinaryString(31));
-
-    }
-
-    public static int foo(int x) {
-        int count=0;
-        while(x>0){
-            count++;
-            x = x & (x - 1);
+        for (int i = 0; i < 16; i++) {
+            for (int j = 0; j < 16; j++) {
+                int code = i * 16 + j;
+                System.out.printf("\u001b[38;5;%dm%-4d", code, code);
+            }
+            System.out.println("\u001b[0m");
         }
-        return count;
+
+
+        testFloat();
+
     }
+
+    public static void testFloat() {
+        float x;
+        x = 10/4;
+        System.out.println("10/4 = " + x);
+        x = 10/4.0f;
+        System.out.println("10/4.0f = " + x);
+        x = 10.0f/4;
+        System.out.println("10/4.0f = " + x);
+        x = 10.0f/4.0f;
+        System.out.println("10.0f/4.0f = " + x);
+
+        System.out.println(1/2);
+        System.out.println(1/2*9);
+
+        System.out.println(7.7%3);
+    }
+
+
 }
