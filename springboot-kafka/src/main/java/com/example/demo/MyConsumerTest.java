@@ -3,12 +3,15 @@ package com.example.demo;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.Properties;
 
+@Component
 public class MyConsumerTest {
-    public static void main(String[] args) {
+
+    public void consume() {
         String topic = "lxw1234.com";
         Properties props = new Properties();
         props.put("isolation.level", "read_committed");
@@ -26,5 +29,9 @@ public class MyConsumerTest {
             for (ConsumerRecord<String, String> record : records)
                 System.out.printf("offset = %d, key = %s, value = %s%n", record.offset(), record.key(), record.value());
         }
+    }
+
+    public static void main(String[] args) {
+
     }
 }

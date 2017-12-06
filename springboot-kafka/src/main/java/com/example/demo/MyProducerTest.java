@@ -3,6 +3,7 @@ package com.example.demo;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
+import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -10,9 +11,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
+@Component
 public class MyProducerTest {
 
-    public static void main(String[] args) {
+    public void produce() {
         Properties props = new Properties();
         props.put("bootstrap.servers", "localhost:9092");
         props.put("acks", "all");
@@ -48,6 +50,10 @@ public class MyProducerTest {
             }
         }
         producer.close();
+    }
+
+    public static void main(String[] args) {
+
 
     }
 }
