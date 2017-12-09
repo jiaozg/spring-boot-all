@@ -13,8 +13,6 @@
 
 
 	<modules>
-		<module>springboot-first-application</module>
-		<module>springboot-restdocs</module>
 		<module>springboot-dubbo</module>
 		<module>springboot-upload-yun-file</module>
 	</modules>
