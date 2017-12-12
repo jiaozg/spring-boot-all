@@ -52,13 +52,21 @@ public class ClassLoaderTest {
         System.out.println(loader.getParent());
         System.out.println(loader.getParent().getParent());
 
-        BigDecimal bigDecimal = new BigDecimal(10);
+
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println(Long.MAX_VALUE);
+
+        long l = 9223372036854775807L * 2;
+        System.out.println(l);
+
+        BigDecimal bigDecimal = new BigDecimal(9223372036854775807L ).multiply(new BigDecimal(2.1123));
         System.out.println(bigDecimal + "test");
 
 
         ClassLoader cl = ClassLoader.getSystemClassLoader();
         try {
             Class<?> cls = cl.loadClass("java.util.ArrayList");
+            System.out.println(cls);
             ClassLoader actualLoader = cls.getClassLoader();
             System.out.println(actualLoader);
         } catch (ClassNotFoundException e) {

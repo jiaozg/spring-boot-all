@@ -8,7 +8,7 @@ public class Oom {
     public static void main(String[] args) {
         System.out.println("Hello OOM");
 
-        String [] string = new String[1000000000];
+        String [] string = new String[1000];
 
 //        List<Object> list = new ArrayList<>();
 //        int i = 0;

@@ -1,9 +1,9 @@
-package com.example.demo.algorithm;
+package com.example.demo.algorithm.sort;
 
 /**
  * Created by jiaozhiguang on 2017/10/17.
  */
-public class Sort {
+public class InsertSort {
 
     static void bubbleSort(int[] array) {
 
