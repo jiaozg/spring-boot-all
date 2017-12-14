@@ -32,7 +32,7 @@ public class OrderNoLock {
     }
 
     static int num = 0;
-    public static synchronized String getOrderNo() {
+    public static String getOrderNo() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYYmmDDHHMMSS");
         return simpleDateFormat.format(new Date()) + num++;
     }

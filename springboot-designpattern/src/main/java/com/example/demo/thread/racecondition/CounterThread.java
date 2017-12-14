@@ -1,11 +1,24 @@
-package com.example.demo.thread;
+package com.example.demo.thread.racecondition;
+
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Created by jiaozhiguang on 2017/10/12.
+ *
  */
 public class CounterThread extends Thread {
 
     private static int counter = 0;
+    private static int countersynchronized = 0;
+    private static Counter coun = new Counter();
+
+    private final Lock lock = new ReentrantLock();
+
+    public static synchronized void incresynchronized() {
+        countersynchronized++;
+    }
+
 
     @Override
     public void run() {
@@ -14,6 +27,8 @@ public class CounterThread extends Thread {
         } catch (InterruptedException e) {
         }
         counter ++;
+        incresynchronized();
+        coun.incr();
     }
 
 
@@ -30,6 +45,8 @@ public class CounterThread extends Thread {
         }
 
         System.out.println(counter);
+        System.out.println(countersynchronized);
+        System.out.println(coun.getCount());
     }
 
 }

@@ -27,6 +27,7 @@ public class GlobalDefaultExceptionHandler {
 
         //打印异常信息：
         model.addAttribute("msg", e.getMessage());
+        e.printStackTrace();
         return EXCEPTION;
     }
 }  

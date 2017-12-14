@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @author jiao
@@ -60,6 +61,35 @@ public class PDFController {
             table.addCell(cell);
             document.add(table);
         }
+        document.close();
+    }
+
+    @RequestMapping("/pdf/math")
+    public void math(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        // 告诉浏览器用什么软件可以打开此文件
+        response.setHeader("content-Type", "application/pdf");
+        // 下载文件的默认名称
+        response.setHeader("Content-Disposition", "attachment;filename=user.pdf");
+
+        Document document = new Document();
+        PdfWriter.getInstance(document, response.getOutputStream());
+        document.open();
+
+        int column = 8;
+
+        for (int i = 0; i < 200 ; i++) {
+            PdfPTable table = new PdfPTable(column);
+            for (int j = 0; j < column; j++) {
+                PdfPCell cell = new PdfPCell();
+                cell.setPhrase(new Paragraph(new Random().nextInt(11)+"+ " + new Random().nextInt(11) +"=  "));
+                table.addCell(cell);
+                document.add(table);
+            }
+
+
+
+        }
+
         document.close();
     }
 

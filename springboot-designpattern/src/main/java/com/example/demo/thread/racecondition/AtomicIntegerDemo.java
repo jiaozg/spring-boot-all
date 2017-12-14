@@ -1,4 +1,4 @@
-package com.example.demo.thread;
+package com.example.demo.thread.racecondition;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

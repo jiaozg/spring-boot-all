@@ -89,13 +89,24 @@
 			<artifactId>itext-asian</artifactId>
 			<version>5.2.0</version>
 		</dependency>
-		<!-- 导出pdf文档 结束 -->
 
-		<!-- 导出excel文档 结束 -->
+        <!--  监控服务器性能信息等的需求，比如cpu、mem、disk  -->
+        <dependency>
+            <groupId>org.fusesource</groupId>
+            <artifactId>sigar</artifactId>
+            <version>1.6.4</version>
+        </dependency>
+
+		<!-- 支持中文的字体 -->
 		<dependency>
-			<groupId>org.jeecg</groupId>
-			<artifactId>easypoi-base</artifactId>
-			<version>2.4.0</version>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.17</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.17</version>
 		</dependency>
 
 	</dependencies>

@@ -108,6 +108,10 @@ Spring Security需要我们实现几个东西，第一个是UserDetails：这个
 所以我们创建一个JwtUser类来实现这个接口。为什么不直接使用User类？因为这个UserDetails完全是为了安全服务的，
 它和我们的领域类可能有部分属性重叠，但很多的接口其实是安全定制的，所以最好新建一个类：
 
+集成JWT和Spring Security
+
+到现在，我们还是让JWT和Spring Security各自为战，并没有集成起来。要想要JWT在Spring中工作，我们应该新建一个filter，并把它配置在 WebSecurityConfig 中
+
 
 
 

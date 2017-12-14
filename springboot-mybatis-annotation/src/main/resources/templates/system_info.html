@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table class="table table-striped table-bordered table-hover" style="margin: 0px;">
+    <tbody>
+    <tr>
+        <td class="left">ip地址</td>
+        <td id="hostIp" class="left" th:text="${systemInfo.hostIp}">${systemInfo.hostIp}</td>
+    </tr>
+    <tr>
+        <td class="left">主机名</td>
+
+        <td class="left" id="hostName" th:text="${systemInfo.hostName}">${systemInfo.hostName}</td>
+    </tr>
+    <tr>
+        <td class="left">操作系统的名称</td>
+
+        <td class="left" id="osName" th:text="${systemInfo.osName}">${systemInfo.osName}</td>
+    </tr>
+    <tr>
+        <td class="left">操作系统的构架</td>
+
+        <td class="left" id="arch" th:text="${systemInfo.arch}">${systemInfo.arch}</td>
+    </tr>
+    <tr>
+        <td class="left">操作系统的版本</td>
+
+        <td class="left" id="osVersion" th:text="${systemInfo.osVersion}">${systemInfo.osVersion}</td>
+    </tr>
+    <tr>
+        <td class="left">处理器个数</td>
+
+        <td class="left" id="processors" th:text="${systemInfo.processors}">${systemInfo.processors}</td>
+    </tr>
+    <tr>
+        <td class="left">Java的运行环境版本</td>
+
+        <td class="left" id="javaVersion" th:text="${systemInfo.javaVersion}">${systemInfo.javaVersion}</td>
+    </tr>
+    <tr>
+        <td class="left">Java供应商的URL</td>
+
+        <td class="left" id="javaUrl" th:text="${systemInfo.javaUrl}">${systemInfo.javaUrl}</td>
+    </tr>
+    <tr>
+        <td class="left">Java的安装路径</td>
+
+        <td class="left" id="javaHome" th:text="${systemInfo.javaHome}"></td>
+    </tr>
+    <tr>
+        <td class="left">临时文件路径</td>
+
+        <td class="left" id="tmpdir" th:text="${systemInfo.tmpdir}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
