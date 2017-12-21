@@ -21,10 +21,10 @@ public class HelloController {
     @GetMapping("/")
     public String hello() {
 
-        String test = redisRepository.getValue("test");
+        String test = redisRepository.getValue("client");
         System.out.println(test);
-        redisRepository.setKey("test", "test");
-        test = redisRepository.getValue("test");
+        redisRepository.setKey("client", "client");
+        test = redisRepository.getValue("client");
         System.out.println(test);
 
         return  "Hello World "+ 9081;

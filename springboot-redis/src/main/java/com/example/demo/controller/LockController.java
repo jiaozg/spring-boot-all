@@ -48,7 +48,7 @@ public class LockController {
         public void run() {
             try {
                 startSignal.await();
-                distributedLocker.lock("test",new AquiredLockWorker<Object>() {
+                distributedLocker.lock("client",new AquiredLockWorker<Object>() {
 
                     @Override
                     public Object invokeAfterLockAquire() {
@@ -69,7 +69,7 @@ public class LockController {
         for (int i = 0; i <5 ; i++) {
             new Thread(new Tester()).start();
         }
-        return "test";
+        return "client";
     }
 
     class Tester implements Runnable {

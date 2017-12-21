@@ -25,9 +25,7 @@ var option = {
 
 
 $.ajax({
-
     url: "/map?lan=java",
-
     success: function(data){
         // alert(data.res);
         console.log(data);

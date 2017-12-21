@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 @Component
-public class MyProducerTest {
+public class MyProducer {
 
     public void produce() {
         Properties props = new Properties();
@@ -24,6 +24,7 @@ public class MyProducerTest {
         props.put("buffer.memory", 33554432);
         props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+
         Producer<String, String> producer = new KafkaProducer<String, String>(props);
         String topic = "lxw1234.com";
 
@@ -54,6 +55,7 @@ public class MyProducerTest {
 
     public static void main(String[] args) {
 
+        new MyProducer().produce();
 
     }
 }

@@ -92,9 +92,9 @@ public class ChartController {
         return "index";
     }
 
-    @GetMapping("/test")
+    @GetMapping("/client")
     String test() {
-        return "test";
+        return "client";
     }
 
     @GetMapping("/xiu")

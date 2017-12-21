@@ -11,7 +11,7 @@ import static org.junit.Assert.assertTrue;
 @SpringBootTest
 public class FactoryTest {
 
-	// Test method which is the client
+	// DepartmentTest method which is the client
 	@Test
 	public void test() {
 		Kitchen factory = new KitchenFactory();

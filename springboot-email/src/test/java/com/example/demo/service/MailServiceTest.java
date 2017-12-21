@@ -20,7 +20,7 @@ public class MailServiceTest {
 
     @Test
     public void testSimpleMail() throws Exception {
-        mailService.sendSimpleMail("jiaozhiguang@126.com","test simple mail"," hello this is simple mail");
+        mailService.sendSimpleMail("jiaozhiguang@126.com","client simple mail"," hello this is simple mail");
     }
 
     @Test
@@ -30,7 +30,7 @@ public class MailServiceTest {
                 "    <h3>hello world ! 这是一封html邮件!</h3>\n" +
                 "</body>\n" +
                 "</html>";
-        mailService.sendHtmlMail("jiaozhiguang@126.com","test simple mail",content);
+        mailService.sendHtmlMail("jiaozhiguang@126.com","client simple mail",content);
     }
 
     @Test

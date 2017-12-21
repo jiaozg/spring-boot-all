@@ -14,7 +14,7 @@ import static org.junit.Assert.assertTrue;
 @SpringBootTest
 public class CommandTest {
 
-	// This test method is a client
+	// This client method is a client
 	@Test
 	public void test() {
 		Administrator admin = new Administrator();

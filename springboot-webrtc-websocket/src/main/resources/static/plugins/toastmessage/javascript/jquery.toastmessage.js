@@ -38,7 +38,7 @@
  *      close    : function () {console.log("toast is closed ...");}
  *   });
  *
- *   To see some more examples please have a look into the Tests in src/test/javascript/ToastmessageTest.js
+ *   To see some more examples please have a look into the Tests in src/client/javascript/ToastmessageTest.js
  *
  *   For further style configuration please see corresponding css file: jquery-toastmessage.css
  *

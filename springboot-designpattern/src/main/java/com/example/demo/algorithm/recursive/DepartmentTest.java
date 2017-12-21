@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by jiaozhiguang on 2017/12/13.
  */
-public class Test {
+public class DepartmentTest {
 
     public static void main(String[] args) {
 

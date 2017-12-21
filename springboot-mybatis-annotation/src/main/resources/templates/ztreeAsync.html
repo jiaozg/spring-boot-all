@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+	<TITLE> ZTREE DEMO - Simple Data</TITLE>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="plugins/ztree/css/demo.css" type="text/css">
+	<link rel="stylesheet" href="plugins/ztree/css/zTreeStyle/zTreeStyle.css" type="text/css">
+	<script type="text/javascript" src="plugins/ztree/js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="plugins/ztree/js/jquery.ztree.core.js"></script>
+	<script type="text/javascript" src="plugins/ztree/js/jquery.ztree.excheck.js"></script>
+	<script type="text/javascript" src="plugins/ztree/js/jquery.ztree.exedit.js"></script>
+	<SCRIPT type="text/javascript">
+		<!--
+		var setting = {
+            edit: {
+                enable: true,
+                showRenameBtn: true
+            },
+            async: {
+                enable: true,
+                url: getUrl
+            },
+            view: {
+                expandSpeed: ""
+            },
+			data: {
+				simpleData: {
+					enable: true
+				}
+			},
+            callback: {
+                onRename: onRename
+            }
+		};
+
+        function getUrl(treeId, treeNode) {
+            console.log("treeNode.id = " +treeNode.id);
+            return "/getByPid?pid="+ treeNode.id;
+        }
+
+        function onRename(event, treeId, treeNode) {
+            console.log("treeNode.id = " +treeNode.id);
+            var data = {"id":treeNode.id, "name":treeNode.name};
+
+            $.ajax({
+                url: "/updateName",
+                data:data,
+				type: "POST",
+                dataType: "json",
+                success: function(data){
+
+                }
+            });
+        }
+
+        $.ajax({
+            url: "/ptree",
+            success: function(data){
+                // alert(data.res);
+                console.log(data);
+                zNodes = data;
+
+                $(document).ready(function(){
+                    setting.edit.showRemoveBtn = true;
+                    setting.edit.showRenameBtn = true;
+                    setting.edit.removeTitle = "remove";
+                    setting.edit.renameTitle = "rename";
+                    $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+                });
+            }
+        });
+
+
+		//-->
+	</SCRIPT>
+ </HEAD>
+
+<BODY>
+<h1>Simple JSON Data</h1>
+<h6>[ File Path: core/simpleData.html ]</h6>
+<div class="content_wrap">
+	<div class="zTreeDemoBackground left">
+		<ul id="treeDemo" class="ztree"></ul>
+	</div>
+
+</div>
+</BODY>
+</HTML>

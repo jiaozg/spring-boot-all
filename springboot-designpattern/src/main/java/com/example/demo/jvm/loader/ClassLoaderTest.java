@@ -60,7 +60,7 @@ public class ClassLoaderTest {
         System.out.println(l);
 
         BigDecimal bigDecimal = new BigDecimal(9223372036854775807L ).multiply(new BigDecimal(2.1123));
-        System.out.println(bigDecimal + "test");
+        System.out.println(bigDecimal + "client");
 
 
         ClassLoader cl = ClassLoader.getSystemClassLoader();

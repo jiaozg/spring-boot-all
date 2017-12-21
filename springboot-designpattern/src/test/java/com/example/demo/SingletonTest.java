@@ -18,7 +18,7 @@ public class SingletonTest {
 		assertTrue("Both references of President should point to the same object", president1 == president2);
 		System.out.println("president1 = "+president1+" and president2 = "+president2);
 		// sample output
-		// president1 = com.waitingforcode.test.President@17414c8 and president2 = com.waitingforcode.test.President@17414c8
+		// president1 = com.waitingforcode.client.President@17414c8 and president2 = com.waitingforcode.client.President@17414c8
 
 	}
 

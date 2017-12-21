@@ -21,7 +21,7 @@ public class FormMap<K, V> extends HashMap<K, V> implements Serializable  {
 	}
 	
 	/**
-	 * Get attribute of mysql type: varchar, char, enum, set, text, tinytext,
+	 * Get attribute of mysql type: varchar, char, enumimpl, set, text, tinytext,
 	 * mediumtext, longtext
 	 */
 	public String getStr(String attr) {

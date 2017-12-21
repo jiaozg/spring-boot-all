@@ -18,9 +18,9 @@ import java.util.concurrent.TimeUnit;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SpringbootRedisApplicationTests {
+public class RedisTests {
 
-	public static Logger logger= LoggerFactory.getLogger(SpringbootRedisApplicationTests.class);
+	public static Logger logger= LoggerFactory.getLogger(RedisTests.class);
 	@Test
 	public void contextLoads() {
 	}

@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.MyConsumerTest;
-import com.example.demo.MyProducerTest;
+import com.example.demo.MyConsumer;
+import com.example.demo.MyProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
     @Autowired
-    private MyConsumerTest consumerTest;
+    private MyConsumer consumerTest;
 
     @Autowired
-    private MyProducerTest producerTest;
+    private MyProducer producerTest;
 
     @GetMapping("/")
     public String hello() {

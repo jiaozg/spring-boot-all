@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+	<TITLE> ZTREE DEMO - Simple Data</TITLE>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="plugins/ztree/css/demo.css" type="text/css">
+	<link rel="stylesheet" href="plugins/ztree/css/zTreeStyle/zTreeStyle.css" type="text/css">
+	<script type="text/javascript" src="plugins/ztree/js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="plugins/ztree/js/jquery.ztree.core.js"></script>
+	<!--  <script type="text/javascript" src="../../../js/jquery.ztree.excheck.js"></script>
+	  <script type="text/javascript" src="../../../js/jquery.ztree.exedit.js"></script>-->
+	<SCRIPT type="text/javascript">
+		<!--
+		var setting = {
+			data: {
+				simpleData: {
+					enable: true
+				}
+			}
+		};
+
+
+        $.ajax({
+            url: "/tree",
+            success: function(data){
+                // alert(data.res);
+                console.log(data);
+                zNodes = data;
+
+                $(document).ready(function(){
+                    $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+                });
+            }
+        });
+
+
+		//-->
+	</SCRIPT>
+ </HEAD>
+
+<BODY>
+<h1>Simple JSON Data</h1>
+<h6>[ File Path: core/simpleData.html ]</h6>
+<div class="content_wrap">
+	<div class="zTreeDemoBackground left">
+		<ul id="treeDemo" class="ztree"></ul>
+	</div>
+	<div class="right">
+		<ul class="info">
+			<li class="title"><h2>1, Explanation of setting</h2>
+				<ul class="list">
+				<li class="highlight_red">Must set setting.data.simple attributes,  see the API documentation for more related contents.</li>
+				<li>The setting.view in API documentation is associated with the display of the zTree.</li>
+				<li>To change the 'name', 'children', 'title' attribute, please refer to the API documentation about 'setting.data.key'.</li>
+				</ul>
+			</li>
+			<li class="title"><h2>2, Explanation of treeNode</h2>
+				<ul class="list">
+				<li class="highlight_red">Id / pId that include parent-child relationship between nodes is needed if you use Simple model of the JSON data, and other attributes please refer to the instructions within setting.data.simple.
+				<div><pre xmlns=""><code>For example:
+var nodes = [
+	{id:1, pId:0, name: "pNode 01"},
+	{id:11, pId:1, name: "child 01"},
+	{id:12, pId:1, name: "child 02"}
+];</code></pre></div></li>
+				<li>To set nodes expanded by default, set treeNode.open attribute.</li>
+				<li>To get parent node which has no child node, set treeNode.isParent attribute.</li>
+				<li>Please refer to the API documentation "treeNode data details" to view other attributes description.</li>
+				</ul>
+			</li>
+			<li class="title"><h2>3、Other explanation</h2>
+				<ul class="list">
+				<li>The simple JSON data model has been used almost everywhere, which can be learned easily.</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+</BODY>
+</HTML>
