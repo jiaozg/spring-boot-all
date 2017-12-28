@@ -17,8 +17,6 @@ public class RedisServer {
 
         Socket socket = serverSocket.accept();
 
-
-
         byte[] request = new byte[1024];
 
         InputStream inputStream = socket.getInputStream();

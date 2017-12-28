@@ -9,7 +9,7 @@ package com.example.demo.thread.memoryvisibility;
  */
 public class VisibilityDemo  {
 
-    private static boolean shutdown = false;
+    private  static boolean  shutdown = false;
 
     static class HelloThread extends Thread {
         @Override

@@ -8,15 +8,15 @@ import redis.clients.jedis.Jedis;
 public class ClusterTest {
 
     public static void main(String[] args) {
-        Jedis jedis = new Jedis("127.0.0.1", 6380);
-        jedis.set("d", "d");
-        System.out.println(jedis.get("d"));
+        Jedis jedis = new Jedis("127.0.0.1", 6382);
+        jedis.set("c", "c");
+        System.out.println(jedis.get("c"));
+
+        jedis = new Jedis("127.0.0.1", 6380);
+        System.out.println(jedis.get("c"));
 
         jedis = new Jedis("127.0.0.1", 6381);
-        System.out.println(jedis.get("d"));
-
-        jedis = new Jedis("127.0.0.1", 6382);
-        System.out.println(jedis.get("d"));
+        System.out.println(jedis.get("c"));
     }
 
 

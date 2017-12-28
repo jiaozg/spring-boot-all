@@ -17,12 +17,12 @@ public class FailTest {
                     public void run() {
                         while (true) {
                             try {
-                                Jedis jedis = new Jedis("127.0.0.1", 6379);
+                                Jedis jedis = new Jedis("127.0.0.1", 6380);
                                 jedis.set("d", "d");
                                 System.out.println(jedis.get("d") + Thread.currentThread().getName());
                                 Thread.sleep(3000);
                             } catch (Exception e) {
-                                jedis = new Jedis("127.0.0.1", 6379);
+                                jedis = new Jedis("127.0.0.1", 6380);
                                 System.err.println("连接断开了" + Thread.currentThread().getName());
                             }
                         }

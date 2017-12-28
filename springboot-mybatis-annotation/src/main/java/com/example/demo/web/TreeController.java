@@ -1,12 +1,11 @@
 package com.example.demo.web;
 
-import com.example.demo.entity.SysAreaEntity;
+import com.example.demo.entity.SysArea;
 import com.example.demo.form.AreaTree;
 import com.example.demo.mapper.SysAreaMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -46,7 +45,7 @@ public class TreeController {
     @PostMapping("/updateName")
     @ResponseBody
     public void updateName(Long id, String name) {
-        sysAreaMapper.updateName(new SysAreaEntity(id.toString(), name));
+        sysAreaMapper.updateName(new SysArea(id.toString(), name));
     }
 
 

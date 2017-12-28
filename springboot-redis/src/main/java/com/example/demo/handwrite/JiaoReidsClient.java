@@ -20,7 +20,7 @@ public class JiaoReidsClient {
         reader = socket.getInputStream();
         writer = socket.getOutputStream();
     }
-    //set tony hello
+//set tony hello
 //*3 参数数量
 //$3 第一个参数长度
 //SET 第一个参数

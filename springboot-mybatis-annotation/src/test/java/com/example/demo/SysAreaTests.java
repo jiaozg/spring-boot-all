@@ -1,10 +1,7 @@
 package com.example.demo;
 
-import com.example.demo.entity.SysAreaEntity;
-import com.example.demo.entity.UserEntity;
-import com.example.demo.enums.UserSexEnum;
+import com.example.demo.entity.SysArea;
 import com.example.demo.mapper.SysAreaMapper;
-import com.example.demo.mapper.UserMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +21,6 @@ public class SysAreaTests {
 
 	@Test
 	public void testUpdateName() throws Exception {
-		sysAreaMapper.updateName(new SysAreaEntity("110000", "北京市1") );
+		sysAreaMapper.updateName(new SysArea("110000", "北京市1") );
 	}
 }
