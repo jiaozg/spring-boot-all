@@ -33,6 +33,7 @@ public class BookContrller {
         books.put(book.getId(), book);
         return "success";
     }
+
     @ApiOperation(value="获图书细信息", notes="根据url的id来获取详细信息")
     @ApiImplicitParam(name = "id", value = "ID", required = true, dataType = "Long",paramType = "path")
     @RequestMapping(value="/{id}", method=RequestMethod.GET)

@@ -27,6 +27,7 @@ import java.util.stream.Collectors;
 @Controller
 public class FileUploadController {
 
+
     @Autowired
     private final StorageService storageService;
 
@@ -73,20 +74,7 @@ public class FileUploadController {
         return "redirect:/";
     }
 
-    @GetMapping("/test")
-    @ResponseBody
-    public String face() {
 
-        String url = "https://api-cn.faceplusplus.com/cardpp/v1/ocridcard";
-
-        List<NameValuePair> params = new ArrayList<>();
-        params.add(new BasicNameValuePair("api_key", "uY828SsomgDN1uPatYXDmBpu0lPWcThx"));
-        params.add(new BasicNameValuePair("api_secret", "0wAhnC5W1tLxtmFj_dM6uPyiZ7J3urL4"));
-        params.add(new BasicNameValuePair("image_url", "https://thumbnail0.baidupcs.com/thumbnail/a7bed4fedd60bd659193511d0bd772f7?fid=1430534537-250528-815664779642130&time=1507870800&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-obh9g0kmGS4DbqV6qDMw2bt7HBM%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=6623453428403123212&dp-callid=0&size=c710_u400&quality=100&vuk=-&ft=video"));
-
-        return HttpClientUtil.post(url, params);
-
-    }
 
     @ExceptionHandler(StorageFileNotFoundException.class)
     public ResponseEntity handleStorageFileNotFound(StorageFileNotFoundException exc) {

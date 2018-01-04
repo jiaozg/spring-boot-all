@@ -18,7 +18,6 @@ public class ThreadPoolTest {
         fixed.submit(() -> System.out.println("fixed"));
         fixed.shutdown();
 
-
     }
 
 }
