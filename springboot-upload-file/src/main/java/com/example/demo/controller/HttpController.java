@@ -26,7 +26,7 @@ public class HttpController {
 
         String url = "https://www.agoda.com/api/zh-cn/Main/GetSearchResultList";
 
-        File file = new File("/Users/jiaozhiguang/baweiwork/springboot/spring-boot-all/springboot-upload-file/src/main/resources/param.txt");
+        File file = new File("./springboot-upload-file/src/main/resources/param.txt");
 
         FileReader fr = new FileReader(file);
 

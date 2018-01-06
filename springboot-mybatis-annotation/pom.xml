@@ -98,7 +98,6 @@
             <version>1.6.4</version>
         </dependency>
 
-		<!-- 支持中文的字体 -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
@@ -110,7 +109,16 @@
 			<version>3.17</version>
 		</dependency>
 
-	</dependencies>
+        <!-- word -->
+        <dependency>
+            <groupId>org.docx4j</groupId>
+            <artifactId>docx4j</artifactId>
+            <version>3.3.6</version>
+        </dependency>
+
+
+
+    </dependencies>
 
 	<build>
 		<plugins>

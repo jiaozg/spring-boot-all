@@ -75,15 +75,37 @@ public class PDFController {
         PdfWriter.getInstance(document, response.getOutputStream());
         document.open();
 
-        int column = 8;
+        BaseFont bf = BaseFont.createFont("STSong-Light", "UniGB-UCS2-H",
+                BaseFont.NOT_EMBEDDED);
+        Font font = new Font(bf, 14);
 
-        for (int i = 0; i < 200 ; i++) {
+        int column = 6;
+
+        for (int i = 0; i < 210 ; i++) {
             PdfPTable table = new PdfPTable(column);
             for (int j = 0; j < column; j++) {
-                PdfPCell cell = new PdfPCell();
-                cell.setPhrase(new Paragraph(new Random().nextInt(11)+"+ " + new Random().nextInt(11) +"=  "));
-                table.addCell(cell);
-                document.add(table);
+                if (i % 4 == 0) {
+                    PdfPCell cell = new PdfPCell();
+                    cell.setPhrase(new Paragraph(new Random().nextInt(11) + 10 +" - " + new Random().nextInt(11) +" =  ", font));
+                    table.addCell(cell);
+                    document.add(table);
+                } else if(i % 4 == 1) {
+                    PdfPCell cell = new PdfPCell();
+                    cell.setPhrase(new Paragraph(new Random().nextInt(11)+" + " + new Random().nextInt(11) +" =  ", font));
+                    table.addCell(cell);
+                    document.add(table);
+                } else if (i % 4 == 2) {
+                    PdfPCell cell = new PdfPCell();
+                    cell.setPhrase(new Paragraph(new Random().nextInt(11) + 10 + "-(    )=" +new Random().nextInt(11), font));
+                    table.addCell(cell);
+                    document.add(table);
+                } else {
+                    PdfPCell cell = new PdfPCell();
+                    cell.setPhrase(new Paragraph(  "(    )+" + new Random().nextInt(11) + "="+(new Random().nextInt(11) + 10), font));
+                    table.addCell(cell);
+                    document.add(table);
+                }
+
             }
 
 
