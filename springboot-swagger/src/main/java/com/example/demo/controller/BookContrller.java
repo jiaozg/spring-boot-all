@@ -29,9 +29,9 @@ public class BookContrller {
     @ApiOperation(value="创建图书", notes="创建图书")
     @ApiImplicitParam(name = "book", value = "图书详细实体", required = true, dataType = "Book")
     @RequestMapping(value="", method=RequestMethod.POST)
-    public String postBook(@RequestBody Book book) {
+    public Book postBook(@RequestBody Book book) {
         books.put(book.getId(), book);
-        return "success";
+        return book;
     }
 
     @ApiOperation(value="获图书细信息", notes="根据url的id来获取详细信息")
@@ -47,13 +47,27 @@ public class BookContrller {
             @ApiImplicitParam(name = "book", value = "图书实体book", required = true, dataType = "Book")
     })
     @RequestMapping(value="/{id}", method= RequestMethod.PUT)
-    public String putUser(@PathVariable Long id, @RequestBody Book book) {
+    public String putBook(@PathVariable Long id, @RequestBody Book book) {
         Book book1 = books.get(id);
         book1.setName(book.getName());
         book1.setPrice(book.getPrice());
         books.put(id, book1);
         return "success";
     }
+
+    @ApiOperation(value="更新信息", notes="根据book的id来指定更新图书信息")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "book", value = "图书实体book", required = true, dataType = "Book")
+    })
+    @PutMapping("")
+    public String putBook(@RequestBody Book book) {
+        Book book1 = books.get(book.getId());
+        book1.setName(book.getName());
+        book1.setPrice(book.getPrice());
+        books.put(book.getId(), book1);
+        return "success";
+    }
+
     @ApiOperation(value="删除图书", notes="根据url的id来指定删除图书")
     @ApiImplicitParam(name = "id", value = "图书ID", required = true, dataType = "Long",paramType = "path")
     @RequestMapping(value="/{id}", method=RequestMethod.DELETE)
@@ -66,5 +80,10 @@ public class BookContrller {
     @RequestMapping(value = "/hi", method = RequestMethod.GET)
     public String  jsonTest() {
         return " hi you!";
+    }
+
+    @RequestMapping(value = "/getbook1", method = RequestMethod.GET)
+    public Book book1() {
+        return new Book(1, "三国演义", 90);
     }
 }

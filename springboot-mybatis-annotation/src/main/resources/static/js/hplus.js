@@ -107,7 +107,7 @@ $(document).ready(function () {
 $(window).bind("load resize", function () {
     if ($(this).width() < 769) {
         $('body').addClass('mini-navbar');
-        $('.navbar-static-side').fadeIn();
+        $('.navbar-staticproxy-side').fadeIn();
     }
 });
 
@@ -140,7 +140,7 @@ $(function () {
     // 顶部菜单固定
     $('#fixednavbar').click(function () {
         if ($('#fixednavbar').is(':checked')) {
-            $(".navbar-static-top").removeClass('navbar-static-top').addClass('navbar-fixed-top');
+            $(".navbar-staticproxy-top").removeClass('navbar-static-top').addClass('navbar-fixed-top');
             $("body").removeClass('boxed-layout');
             $("body").addClass('fixed-nav');
             $('#boxedlayout').prop('checked', false);
@@ -262,7 +262,7 @@ $(function () {
         }
 
         if (fixednavbar == 'on') {
-            $(".navbar-static-top").removeClass('navbar-static-top').addClass('navbar-fixed-top');
+            $(".navbar-staticproxy-top").removeClass('navbar-static-top').addClass('navbar-fixed-top');
             body.addClass('fixed-nav');
         }
 

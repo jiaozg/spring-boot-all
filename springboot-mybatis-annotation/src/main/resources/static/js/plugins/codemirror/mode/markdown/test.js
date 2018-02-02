@@ -202,11 +202,11 @@
      "foo",
      "[header&header-2 ---]");
 
-  // Single-line blockquote with trailing space
+  // single-line blockquote with trailing space
   MT("blockquoteSpace",
      "[quote&quote-1 > foo]");
 
-  // Single-line blockquote
+  // single-line blockquote
   MT("blockquoteNoSpace",
      "[quote&quote-1 >foo]");
 
@@ -221,7 +221,7 @@
      "[quote&quote-1 >][quote&quote-2 > foo]",
      "[quote&quote-1 >][quote&quote-2 >][quote&quote-3 > foo]");
 
-  // Single-line blockquote followed by normal paragraph
+  // single-line blockquote followed by normal paragraph
   MT("blockquoteThenParagraph",
      "[quote&quote-1 >foo]",
      "",

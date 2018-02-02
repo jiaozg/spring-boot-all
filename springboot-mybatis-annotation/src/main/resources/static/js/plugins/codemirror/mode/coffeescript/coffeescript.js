@@ -84,7 +84,7 @@ CodeMirror.defineMode("coffeescript", function(conf, parserConf) {
       return state.tokenize(stream, state);
     }
 
-    // Single line comment
+    // single line comment
     if (ch === "#") {
       stream.skipToEnd();
       return "comment";

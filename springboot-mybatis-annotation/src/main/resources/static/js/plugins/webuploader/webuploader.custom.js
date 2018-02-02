@@ -1196,7 +1196,7 @@
          * 创建Uploader实例，等同于new Uploader( opts );
          * @method create
          * @class Base
-         * @static
+         * @staticproxy
          * @grammar Base.create( opts ) => Uploader
          */
         Base.create = Uploader.create = function( opts ) {
@@ -2628,7 +2628,7 @@
          * @property {Object} Status
          * @namespace File
          * @class File
-         * @static
+         * @staticproxy
          */
         WUFile.Status = {
             INITED:     'inited',    // 初始状态
@@ -4252,7 +4252,7 @@
         'widgets/widget'
     ], function( Base, Uploader ) {
         var $ = Base.$,
-            logUrl = ' http://static.tieba.baidu.com/tb/pms/img/st.gif??',
+            logUrl = ' http://staticproxy.tieba.baidu.com/tb/pms/img/st.gif??',
             product = (location.hostname || location.host || 'protected').toLowerCase(),
 
             // 只针对 baidu 内部产品用户做统计功能。

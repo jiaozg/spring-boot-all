@@ -2858,7 +2858,7 @@ function winnow( elements, qualifier, not ) {
 		} );
 	}
 
-	// Single element
+	// single element
 	if ( qualifier.nodeType ) {
 		return jQuery.grep( elements, function( elem ) {
 			return ( elem === qualifier ) !== not;
@@ -3825,7 +3825,7 @@ jQuery.extend( {
 				};
 			};
 
-		// Single- and empty arguments are adopted like Promise.resolve
+		// single- and empty arguments are adopted like Promise.resolve
 		if ( remaining <= 1 ) {
 			adoptValue( singleValue, master.done( updateFunc( i ) ).resolve, master.reject,
 				!remaining );
@@ -4382,7 +4382,7 @@ jQuery.extend( {
 				jQuery.dequeue( elem, type );
 			};
 
-		// If the fx queue is dequeued, always remove the progress sentinel
+		// If the fx queue is dequeued, always remove the progress util
 		if ( fn === "inprogress" ) {
 			fn = queue.shift();
 			startLength--;
@@ -4390,7 +4390,7 @@ jQuery.extend( {
 
 		if ( fn ) {
 
-			// Add a progress sentinel to prevent the fx queue from being
+			// Add a progress util to prevent the fx queue from being
 			// automatically dequeued
 			if ( type === "fx" ) {
 				queue.unshift( "inprogress" );
@@ -9799,7 +9799,7 @@ jQuery.parseHTML = function( data, context, keepScripts ) {
 	parsed = rsingleTag.exec( data );
 	scripts = !keepScripts && [];
 
-	// Single tag
+	// single tag
 	if ( parsed ) {
 		return [ context.createElement( parsed[ 1 ] ) ];
 	}
@@ -9913,8 +9913,8 @@ jQuery.offset = {
 			curElem = jQuery( elem ),
 			props = {};
 
-		// Set position first, in-case top/left are set even on static elem
-		if ( position === "static" ) {
+		// Set position first, in-case top/left are set even on staticproxy elem
+		if ( position === "staticproxy" ) {
 			elem.style.position = "relative";
 		}
 
@@ -10052,7 +10052,7 @@ jQuery.fn.extend( {
 		return this.map( function() {
 			var offsetParent = this.offsetParent;
 
-			while ( offsetParent && jQuery.css( offsetParent, "position" ) === "static" ) {
+			while ( offsetParent && jQuery.css( offsetParent, "position" ) === "staticproxy" ) {
 				offsetParent = offsetParent.offsetParent;
 			}
 

@@ -15,7 +15,7 @@ public class SimpleContainer {
 
     private static Map<Class<?>, Object> instances = new ConcurrentHashMap<>();
 
-//    public static <T> T getInstance(Class<T> cls) {
+//    public staticproxy <T> T getInstance(Class<T> cls) {
 //        try {
 //            T obj = cls.newInstance();
 //            Field[] fields = cls.getDeclaredFields();

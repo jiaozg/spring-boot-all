@@ -36,7 +36,7 @@ public class ThreadPoolProblem {
         }
     }
 
-//    public static void main(String[] args) {
+//    public staticproxy void main(String[] args) {
 //        ExecutorService executor = Executors.newFixedThreadPool(2);
 //        executor.execute(new Task());
 //        executor.execute(new Task());

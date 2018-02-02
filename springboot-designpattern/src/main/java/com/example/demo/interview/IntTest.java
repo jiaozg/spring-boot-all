@@ -18,7 +18,7 @@ public class IntTest {
         a2++;
     }
 
-//    static {
+//    staticproxy {
 //        a1 = 1;
 //        a2 = 1;
 //        a2 = 20;

@@ -31,3 +31,5 @@ swagger通过注解表明该接口会生成文档，包括接口名、请求方�
 四 访问连接
 http://localhost:8081/swagger-ui.html
 
+java -Xms4g -Xmx4g -Xmn768m -server -jar springboot-9-1.4.1.RELEASE.jar
+

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Created by jiaozhiguang on 2017/12/22.
@@ -17,7 +18,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String toindex(Model model) {
-        model.addAttribute("menulist",  menuMapper.selectAll());
+        model.addAttribute("menulist", menuMapper.selectAll());
         return "index";
     }
 
@@ -26,4 +27,10 @@ public class HomeController {
         return "welcome";
     }
 
+    @GetMapping("/hello")
+    @ResponseBody
+    public String hello() {
+        return "hello";
+    }
 }
+

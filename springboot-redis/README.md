@@ -17,3 +17,5 @@ redlock简介
 效率属性A:不会死锁
 效率属性B：容错，只要大多数redis节点能够正常工作，客户端端都能获取和释放锁。
 Redlock是redis官方提出的实现分布式锁管理器的算法
+
+http://www.spring4all.com/question/177

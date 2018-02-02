@@ -8,7 +8,8 @@ import java.util.List;
  */
 public class Department {
 
-    int getCount() {
+
+   int getCount() {
         return 1;
     }
 

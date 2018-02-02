@@ -30,7 +30,7 @@ public class InsertSort {
         }
     }
 
-//    static int[] inserSort(int)
+//    staticproxy int[] inserSort(int)
     public static void main(String[] args) {
 
 

@@ -185,7 +185,7 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
     return obj;
   }
   var cKeywords = "auto if break int case long char register continue return default short do sizeof " +
-    "double static else struct entry switch extern typedef float union for unsigned " +
+    "double staticproxy else struct entry switch extern typedef float union for unsigned " +
     "goto while enum void const signed volatile";
 
   function cppHook(stream, state) {
@@ -307,7 +307,7 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
     keywords: words("abstract assert boolean break byte case catch char class const continue default " +
                     "do double else enum extends final finally float for goto if implements import " +
                     "instanceof int interface long native new package private protected public " +
-                    "return short static strictfp super switch synchronized this throw throws transient " +
+                    "return short staticproxy strictfp super switch synchronized this throw throws transient " +
                     "try void volatile while"),
     blockKeywords: words("catch class do else finally for if switch try while"),
     atoms: words("true false null"),
@@ -326,12 +326,12 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
                     " default delegate do else enum event explicit extern finally fixed for" +
                     " foreach goto if implicit in interface internal is lock namespace new" +
                     " operator out override params private protected public readonly ref return sealed" +
-                    " sizeof stackalloc static struct switch this throw try typeof unchecked" +
+                    " sizeof stackalloc staticproxy struct switch this throw try typeof unchecked" +
                     " unsafe using virtual void volatile while add alias ascending descending dynamic from get" +
                     " global group into join let orderby partial remove select set value var yield"),
     blockKeywords: words("catch class do else finally for foreach if struct switch try while"),
     builtin: words("Boolean Byte Char DateTime DateTimeOffset Decimal Double" +
-                    " Guid Int16 Int32 Int64 Object SByte Single String TimeSpan UInt16 UInt32" +
+                    " Guid Int16 Int32 Int64 Object SByte single String TimeSpan UInt16 UInt32" +
                     " UInt64 bool byte char decimal double short int long object"  +
                     " sbyte float string ushort uint ulong"),
     atoms: words("true false null"),

@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.MyConsumer;
-import com.example.demo.MyProducer;
+import com.example.demo.kafka.MyConsumer;
+import com.example.demo.kafka.MyProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
