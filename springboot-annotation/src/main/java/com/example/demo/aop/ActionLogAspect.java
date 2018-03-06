@@ -1,5 +1,6 @@
-package com.example.demo.actionlog;
+package com.example.demo.aop;
 
+import com.example.demo.annotation.ActionLog;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
@@ -10,14 +11,11 @@ import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 
-/**
- * Created by jiaozhiguang on 2017/9/20.
- */
 @Aspect
 @Component
 public class ActionLogAspect {
 
-    @Pointcut("@annotation(com.example.demo.actionlog.ActionLog)")
+    @Pointcut("@annotation(com.example.demo.annotation.ActionLog)")
     public void setJoinPoint(){}
 
 

@@ -1,3 +1,5 @@
+http://blog.csdn.net/u014695188/article/details/52347372
+
 集成shiro步骤：
 
 (a) pom.xml中添加Shiro依赖；

@@ -20,12 +20,6 @@
 
 
 
-
-
-
-
-
-
 1、HashMap、HashTable、LinkedHashMap、ConcurrentHashMap。 
 
 2、没关系，Collection是List、Set父接口不是Map父接口。

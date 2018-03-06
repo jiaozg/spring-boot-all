@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>玩转spring boot——国际化</title>
+</head>
+<body>
+<h1>玩转spring boot——国际化</h1>
+<h4>
+    <a href="http://www.cnblogs.com/GoodHelper/">from 刘冬的博客</a>
+</h4>
+<br />
+<br />
+<a href="/hello?lang=en_US">English(US)</a>
+<a href="/hello?lang=zh_CN">简体中文</a>
+
+<a href="/list" th:text="#{list}"></a>
+<br />
+
+<h3 th:text="#{welcome} + ' , ' + ${world} "></h3>
+<br />
+<br />
+<a href="http://www.cnblogs.com/GoodHelper/">点击访问原版博客(www.cnblogs.com/GoodHelper)</a>
+</body>
+</html>

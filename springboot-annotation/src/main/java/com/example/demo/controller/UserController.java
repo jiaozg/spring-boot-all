@@ -1,7 +1,8 @@
 package com.example.demo.controller;
 
-import com.example.demo.actionlog.ActionLog;
+import com.example.demo.annotation.ActionLog;
 import org.springframework.web.bind.annotation.*;
+
 
 /**
  * Created by jiaozhiguang on 2017/9/20.

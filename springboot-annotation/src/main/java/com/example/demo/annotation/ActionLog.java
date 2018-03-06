@@ -1,10 +1,7 @@
-package com.example.demo.actionlog;
+package com.example.demo.annotation;
 
 import java.lang.annotation.*;
 
-/**
- * Created by jiaozhiguang on 2017/9/20.
- */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 @Inherited

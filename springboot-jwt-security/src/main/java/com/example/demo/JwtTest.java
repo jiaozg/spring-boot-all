@@ -33,7 +33,7 @@ public class JwtTest {
         System.out.println(getJWS(claim).getBody());
         System.out.println(getJWS(claim).getSignature());
 
-        System.out.println(decryptError(claim));
+//        System.out.println(decryptError(claim));
     }
 
     public static String decryptError(String claim) {

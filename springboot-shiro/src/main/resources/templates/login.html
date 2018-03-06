@@ -9,7 +9,16 @@
 <form action="" method="post">
     <p>账号：<input type="text" name="username" value="admin"/></p>
     <p>密码：<input type="text" name="password" value="123456"/></p>
+    <p>验证码：<input type="text" name="randomcode"/>
+    <img th:src="@{/validatecodeServlet}" onclick="random(this)"/></p>
+    <P><input type="checkbox" name="rememberMe" />记住我</P>
     <p><input type="submit" value="登录"/></p>
+
 </form>
+<script th:inline="javascript">
+    function random(tmp){
+        tmp.src="/validatecodeServlet?rnd="+Math.random();
+    }
+</script>
 </body>
 </html>

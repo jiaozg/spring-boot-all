@@ -1,11 +1,45 @@
-
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
     <meta charset="UTF-8" />
     <title>Insert title here</title>
+
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 <h3>index</h3>
+
+<div id="ant">0</div>
+<input type="button" id="bt" value="停止定时器"/>
+<a th:href="@{/userInfo/userList}">userList</a>
+
+
+<script type="text/javascript">
+    window.onload = function () {
+        var count = 0;
+        var bt = document.getElementById("bt");
+        function show(){
+            document.getElementById("ant").innerHTML = count + 1;
+            count =count +1;
+        }
+        var flag = setInterval(show, 1000);
+        bt.onclick = function () {
+            console.log($("#bt").val());
+            if($("#bt").val() == "停止定时器") {
+                clearInterval(flag);
+                $("#bt").val("开始定时器");
+            } else {
+                flag = setInterval(show, 1000);
+                $("#bt").val("停止定时器");
+            }
+
+
+        }
+    }
+</script>
 </body>
-</html>
+</html>  
