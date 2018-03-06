@@ -1,12 +1,11 @@
-package com.example.demo.mapper;
+package com.example.demo.service;
 
 import com.example.demo.entity.UserEntity;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
-public interface UserMapper {
+public interface UserService {
+
 
     List<UserEntity> getAll();
 
