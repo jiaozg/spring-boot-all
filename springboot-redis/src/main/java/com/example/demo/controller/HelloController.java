@@ -18,6 +18,13 @@ public class HelloController {
     @Autowired
     RedisRepository redisRepository;
 
+    @GetMapping("/redis")
+    public String redis(String string) {
+        redisRepository.setKey("j", string);
+        redisRepository.setKey1("z", string);
+        return "OK";
+    }
+
     @GetMapping("/")
     public String hello() {
 
@@ -27,7 +34,7 @@ public class HelloController {
         test = redisRepository.getValue("client");
         System.out.println(test);
 
-        return  "Hello World "+ 9081;
+        return "Hello World " + 9081;
     }
 
     //keys '*sessions*'

@@ -25,6 +25,7 @@ CREATE TABLE `users` (
   `passWord` varchar(32) DEFAULT NULL COMMENT '密码',
   `user_sex` varchar(32) DEFAULT NULL,
   `nick_name` varchar(32) DEFAULT NULL,
+  `phoneNo` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 

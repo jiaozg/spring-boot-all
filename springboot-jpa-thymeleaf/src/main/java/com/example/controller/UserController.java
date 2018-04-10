@@ -25,6 +25,24 @@ public class UserController {
         return "redirect:/list";
     }
 
+    @RequestMapping("/userBar")
+    public String userBar(Model model) {
+
+        List<User> users=userService.getUserList();
+        model.addAttribute("users", users);
+
+        return "user/userBar";
+    }
+
+    @RequestMapping("/readers")
+    public String readers(Model model) {
+
+        List<User> users=userService.getUserList();
+        model.addAttribute("users", users);
+
+        return "user/readers";
+    }
+
     @RequestMapping("/list")
     public String list(Model model) {
         List<User> users=userService.getUserList();

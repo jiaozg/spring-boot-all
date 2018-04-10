@@ -41,6 +41,14 @@
 			<artifactId>lombok</artifactId>
 		</dependency>
 
+		<!-- ftp -->
+		<dependency>
+			<groupId>commons-net</groupId>
+			<artifactId>commons-net</artifactId>
+			<version>3.6</version>
+		</dependency>
+
+
 		<!-- https://mvnrepository.com/artifact/io.netty/netty -->
 		<dependency>
 			<groupId>io.netty</groupId>

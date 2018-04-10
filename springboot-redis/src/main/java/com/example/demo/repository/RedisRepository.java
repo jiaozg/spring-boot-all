@@ -22,7 +22,12 @@ public class RedisRepository {
 
     public  void setKey(String key,String value){
         ValueOperations<String, String> ops = template.opsForValue();
-        ops.set(key,value,1, TimeUnit.MINUTES);//1分钟过期
+        ops.set(key,value,10, TimeUnit.MINUTES);//1分钟过期
+    }
+
+    public  void setKey1(String key,String value){
+        ValueOperations<String, String> ops = redisTemplate.opsForValue();
+        ops.set(key,value,10, TimeUnit.MINUTES);//1分钟过期
     }
 
     public String getValue(String key){
